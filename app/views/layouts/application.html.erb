@@ -9,6 +9,11 @@
 <body data-hook="controller-<%= controller_name %> action-<%= action_name %>">
 
   <div class="container">
+	<h1> Test Header </h1>
+	<% flash.each do |key, msg| %>
+		<%= content_tag :div, msg, id: key, style: "color:red;" %>
+	<% end %>
+
     <%= yield %>
   </div>
 

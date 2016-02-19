@@ -47,5 +47,7 @@ group :development, :test do
 
   # Dummy data for barbecues
   gem 'faker'
+
+  gem 'devise'
 end
 
