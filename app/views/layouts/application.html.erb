@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Barbecues</title>
+  <title>BBQ Organizer</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application', defer: true %>
   <%= csrf_meta_tags %>
 </head>
 <body data-hook="controller-<%= controller_name %> action-<%= action_name %>">
+  <div class="Header">
+     
+    <%if current_user %>
+      Hello, <%= current_user.email %>!
+      <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
 
+      <% else %>
+      Hello, there.
+      <%= link_to 'Sign in', new_user_session_path %>
+    <% end %>
+  </div> 
   <div class="container">
-	<h1> Test Header </h1>
+	
 	<% flash.each do |key, msg| %>
 		<%= content_tag :div, msg, id: key, style: "color:red;" %>
 	<% end %>
